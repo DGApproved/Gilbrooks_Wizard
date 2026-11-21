@@ -198,3 +198,25 @@ def test_return_requires_ack_and_detects_layout_change():
     holder[0]["serial"] = "OTHER"
     with pytest.raises(H.HandoffRefused, match="identity"):
         H.give_back(dev, s.runner, s.lister, vm_powered_off_ack=True, busy=lambda p: [])
+
+
+def test_parse_vbox_version_with_vboxdrv_warning():
+    from usbprep.vmdk import parse_vbox_version
+    out = ("WARNING: The vboxdrv kernel module is not loaded. Either there is no module\n"
+           "         available for the current kernel (6.8.0-49-generic) or it failed to\n"
+           "         load. Please recompile the kernel module and install it by\n\n"
+           "           sudo /sbin/vboxconfig\n\n"
+           "         You will not be able to start VMs until this problem is fixed.\n"
+           "7.0.14_Ubuntur161095\n")
+    v, warn = parse_vbox_version(out)
+    assert v == "7.0.14_Ubuntur161095"
+    assert "vboxdrv" in warn
+
+
+def test_parse_vbox_version_plain_and_garbage():
+    import pytest
+    from usbprep.vmdk import parse_vbox_version, VmdkError
+    assert parse_vbox_version("6.1.50r161033\n") == ("6.1.50r161033", "")
+    for bad in ("", "WARNING: something broke\n"):
+        with pytest.raises(VmdkError):
+            parse_vbox_version(bad)
