@@ -1,0 +1,29 @@
+Project 1 USB Prep - entry points. This folder is /AI at the ROOT of the FAT32 partition (label EFI) and
+holds the whole project; /EFI on that partition holds only firmware boot files (EFI/BOOT/BOOTX64.EFI).
+
+  Start here: Start/<Windows|MacOS|Linux>  (Start\Windows\START.bat, Start/MacOS/start.command,
+              sh Start/Linux/start.sh) - they forward to the launchers below.
+
+  Linux   : sh launchers/Linux/run.sh          (Java 8+ GUI; drive operations need python3)
+            sh launchers/Linux/run.sh list     (command line only; needs python3, no Java)
+            sh launchers/Linux/run.sh setup    (installs host tools / optional launch-on-insert, asks consent)
+  Windows : launchers\Windows\START_HERE.bat        (Java 8+ GUI: detection + support matrix)
+            launchers\Windows\START_HERE.bat setup  (setup; NATIVE Windows backend by default -
+                                                     Ext4Fsd manual install; WSL2 only with the WSL checkbox / -UseWSL)
+  macOS   : launchers/macOS/START_HERE.command        (Java 8+ GUI; ext4 read/write is BLOCKED natively on macOS)
+            launchers/macOS/START_HERE.command setup  (helper: FAT32 at /Volumes/USB, ext4 options;
+                                                       readonly-install/-mount = ext4fuse, homebrew-install/-mount = anylinuxfs)
+
+Java: if Java 8 or newer is missing, the launcher explains how to get it (free OpenJDK build:
+https://adoptium.net/temurin/releases/ ) and lets you retry. For offline use, put a Java installer in
+Cache/<Windows|MacOS|Linux> and register it with its vendor checksum (see README.txt there); it is then
+installed automatically (after you agree) when Java is missing. Java is not bundled.
+
+Star (dedicated USB mark): if your USB drive is listed as "(not detected as dedicated USB)", select it
+and click the star next to the drive list (or run: launchers/Linux/run.sh star /dev/sdX). It is saved by serial/
+model/vendor/size, never by /dev path; drives without a serial get a this-session-only star. The system disk
+and internal (NVMe/SATA/virtio) disks can never be starred. Formatting a starred drive still erases it and still
+needs your typed confirmation. Details: README.md, section "Star".
+
+FAT32 makes these files readable on every OS; it does not make one program run everywhere, and a .jar is
+not self-executing - it needs an installed Java runtime. Full details: README.md.
