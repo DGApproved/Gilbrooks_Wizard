@@ -1,0 +1,20 @@
+# Privileges / host setup
+- **Linux, as the user:** detection (lsblk).
+- **Linux, root via sudo or pkexec** (asked per action; no passwords are stored): partitioning/formatting, fsck, swapoff, eject, and mounting at `/USB` (creating `/USB` needs root).
+  - The ext4 root is chowned to the invoking user (rw,exec,nosuid,nodev).
+  - A non-empty `/USB` is refused.
+- **Required host tools** (not bundled):
+  - util-linux (lsblk, sfdisk, mount)
+  - gdisk (sgdisk)
+  - dosfstools
+  - e2fsprogs
+  - mtools (image tests)
+  - udisks2 (optional, eject)
+  - xdg-utils
+  - Java 8+ (GUI)
+  - VirtualBox (optional, VMDK)
+  - rsync (Clone; runs as root via sudo/pkexec for numeric ownership)
+  - nasm + gcc-mingw-w64 (optional: rebuilding preserved boot sources with consent); qemu-system-x86 + ovmf (tests only)
+- **Scripts menu:** user scripts always run as the normal user; the app refuses to run them while elevated.
+- **Setup scripts** (`setup/*_setup.*`): consent-gated, with rollback. They install only prerequisites and the opt-in host helpers in `host_helpers/` (udev + systemd user unit / launchd agent / Task Scheduler). Nothing is installed automatically.
+- **Windows/macOS:** admin is needed for WSL2 `wsl --mount`, usbipd-win and diskutil mount points. Untested.

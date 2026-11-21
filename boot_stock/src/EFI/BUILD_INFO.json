@@ -1,0 +1,1 @@
+{"component": "EFI", "artifact": "BOOTX64.EFI", "artifact_sha256": "ea3ed89009f43f759429904b6e54f4d09e0b99ef4b9249a7a8b1cd0b35cf0387", "sources": ["hello.c", "build.sh"], "source_sha256": "3e6d15310b8ea3c4bfadf030297d509814c6ff8cb26482b5b71cbaefa9b2d3e8", "tool": "x86_64-w64-mingw32-gcc (GCC) 12-win32"}

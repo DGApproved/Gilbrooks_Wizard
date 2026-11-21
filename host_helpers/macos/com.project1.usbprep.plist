@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- OPT-IN TEMPLATE - installed to ~/Library/LaunchAgents by `setup/macos_setup.sh autorun` after consent.
+     launchd runs the check script whenever any volume mounts; the script only opens the helper if a
+     volume /Volumes/EFI/AI/USBPREP_MANIFEST.json exists. It never formats or mounts ext4. UNTESTED. -->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.project1.usbprep</string>
+  <key>ProgramArguments</key>
+  <array><string>/bin/sh</string><string>@APPDIR@/host_helpers/macos/on_mount.sh</string></array>
+  <key>StartOnMount</key><true/>
+</dict>
+</plist>

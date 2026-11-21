@@ -1,0 +1,24 @@
+..............................ss......ss.s.ssss.....ss.................. [ 26%]
+s....................................................................... [ 52%]
+.......ss..............................sssss............................ [ 78%]
+..s.........................................................             [100%]
+=========================== short test summary info ============================
+SKIPPED [1] tests/test_bootcontent.py:100: nasm/mingw missing
+SKIPPED [1] tests/test_bootcontent.py:107: nasm missing
+SKIPPED [1] tests/test_bootcontent.py:198: nasm missing
+SKIPPED [1] tests/test_bootcontent.py:211: nasm missing
+SKIPPED [1] tests/test_bootcontent.py:235: sgdisk/mtools/mkswap missing
+SKIPPED [1] tests/test_bootcontent.py:278: sgdisk/mtools/mkswap missing
+SKIPPED [1] tests/test_bootcontent.py:292: sgdisk/mtools/mkswap missing
+SKIPPED [1] tests/test_bootcontent.py:305: sgdisk/mtools/mkswap missing
+SKIPPED [1] tests/test_bootcontent.py:330: sgdisk/mtools/mkswap missing
+SKIPPED [2] tests/test_bootcontent.py:420: qemu-system-x86_64 not installed
+SKIPPED [1] tests/test_cache.py:217: PowerShell (pwsh) not installed on this Linux host: Windows bootstrap syntax NOT verified
+SKIPPED [2] tests/test_full_format.py:144: image tools missing
+SKIPPED [1] tests/test_layout_planner.py:123: image tools missing: ['mkfs.vfat', 'mcopy', 'mdir']
+SKIPPED [1] tests/test_layout_planner.py:133: image tools missing: ['mkfs.vfat', 'mcopy', 'mdir']
+SKIPPED [1] tests/test_layout_planner.py:141: image tools missing: ['mkfs.vfat', 'mcopy', 'mdir']
+SKIPPED [1] tests/test_layout_planner.py:152: image tools missing: ['mkfs.vfat', 'mcopy', 'mdir']
+SKIPPED [1] tests/test_layout_planner.py:164: image tools missing: ['mkfs.vfat', 'mcopy', 'mdir']
+SKIPPED [1] tests/test_safety_executor.py:27: no block device node visible in this container to prove the refusal on
+256 passed, 20 skipped in 7.73s

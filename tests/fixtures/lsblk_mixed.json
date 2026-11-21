@@ -1,0 +1,316 @@
+{
+ "blockdevices": [
+  {
+   "name": "nvme0n1",
+   "path": "/dev/nvme0n1",
+   "type": "disk",
+   "tran": "nvme",
+   "rm": false,
+   "rota": false,
+   "size": 549755813888,
+   "model": "Samsung SSD 980",
+   "serial": "S1",
+   "vendor": "",
+   "wwn": null,
+   "log-sec": 512,
+   "pttype": null,
+   "ptuuid": null,
+   "mountpoints": [
+    null
+   ],
+   "children": [
+    {
+     "name": "nvme0n1p1",
+     "path": "/dev/nvme0n1p1",
+     "type": "part",
+     "fstype": "vfat",
+     "mountpoints": [
+      "/boot/efi"
+     ]
+    },
+    {
+     "name": "nvme0n1p2",
+     "path": "/dev/nvme0n1p2",
+     "type": "part",
+     "fstype": "ext4",
+     "mountpoints": [
+      "/"
+     ]
+    }
+   ],
+   "subsystems": "block:nvme:pci"
+  },
+  {
+   "name": "sda",
+   "path": "/dev/sda",
+   "type": "disk",
+   "tran": "usb",
+   "rm": true,
+   "rota": false,
+   "size": 34359738368,
+   "model": "Cruzer Blade",
+   "serial": "4C530001",
+   "vendor": "SanDisk",
+   "wwn": null,
+   "log-sec": 512,
+   "pttype": null,
+   "ptuuid": null,
+   "mountpoints": [
+    null
+   ],
+   "children": [],
+   "subsystems": "block:scsi:usb:pci"
+  },
+  {
+   "name": "sdb",
+   "path": "/dev/sdb",
+   "type": "disk",
+   "tran": "usb",
+   "rm": false,
+   "rota": true,
+   "size": 2147483648000,
+   "model": "Elements 25A2",
+   "serial": "WX11",
+   "vendor": "WD",
+   "wwn": null,
+   "log-sec": 512,
+   "pttype": null,
+   "ptuuid": null,
+   "mountpoints": [
+    null
+   ],
+   "children": [],
+   "subsystems": "block:scsi:usb:pci"
+  },
+  {
+   "name": "sdc",
+   "path": "/dev/sdc",
+   "type": "disk",
+   "tran": "usb",
+   "rm": false,
+   "rota": false,
+   "size": 1073741824000,
+   "model": "Portable SSD T7",
+   "serial": "S5T7",
+   "vendor": "Samsung",
+   "wwn": null,
+   "log-sec": 512,
+   "pttype": null,
+   "ptuuid": null,
+   "mountpoints": [
+    null
+   ],
+   "children": [],
+   "subsystems": "block:scsi:usb:pci"
+  },
+  {
+   "name": "sdd",
+   "path": "/dev/sdd",
+   "type": "disk",
+   "tran": "usb",
+   "rm": true,
+   "rota": false,
+   "size": 0,
+   "model": "SD/MMC Reader",
+   "serial": "000000001",
+   "vendor": "Generic",
+   "wwn": null,
+   "log-sec": 512,
+   "pttype": null,
+   "ptuuid": null,
+   "mountpoints": [
+    null
+   ],
+   "children": [],
+   "subsystems": "block:scsi:usb:pci"
+  },
+  {
+   "name": "sde",
+   "path": "/dev/sde",
+   "type": "disk",
+   "tran": "usb",
+   "rm": true,
+   "rota": false,
+   "size": 68719476736,
+   "model": "SD/MMC Card Reader",
+   "serial": "000000002",
+   "vendor": "Generic",
+   "wwn": null,
+   "log-sec": 512,
+   "pttype": null,
+   "ptuuid": null,
+   "mountpoints": [
+    null
+   ],
+   "children": [],
+   "subsystems": "block:scsi:usb:pci"
+  },
+  {
+   "name": "sdf",
+   "path": "/dev/sdf",
+   "type": "disk",
+   "tran": "usb",
+   "rm": false,
+   "rota": false,
+   "size": 274877906944,
+   "model": "JMS578 USB3.0 bridge",
+   "serial": "DD5641",
+   "vendor": "JMicron",
+   "wwn": null,
+   "log-sec": 512,
+   "pttype": null,
+   "ptuuid": null,
+   "mountpoints": [
+    null
+   ],
+   "children": [],
+   "subsystems": "block:scsi:usb:pci"
+  },
+  {
+   "name": "sdg",
+   "path": "/dev/sdg",
+   "type": "disk",
+   "tran": "usb",
+   "rm": true,
+   "rota": false,
+   "size": 4294967296,
+   "model": "DataTraveler 2.0",
+   "serial": "KT4G",
+   "vendor": "Kingston",
+   "wwn": null,
+   "log-sec": 512,
+   "pttype": null,
+   "ptuuid": null,
+   "mountpoints": [
+    null
+   ],
+   "children": [],
+   "subsystems": "block:scsi:usb:pci"
+  },
+  {
+   "name": "sdh",
+   "path": "/dev/sdh",
+   "type": "disk",
+   "tran": "usb",
+   "rm": true,
+   "rota": false,
+   "size": 17179869184,
+   "model": "Flash Disk",
+   "serial": "FD16",
+   "vendor": "Generic",
+   "wwn": null,
+   "log-sec": 512,
+   "pttype": null,
+   "ptuuid": null,
+   "mountpoints": [
+    null
+   ],
+   "children": [
+    {
+     "name": "sdh1",
+     "path": "/dev/sdh1",
+     "type": "part",
+     "fstype": "vfat",
+     "mountpoints": [
+      "/media/user/STICK"
+     ]
+    }
+   ],
+   "subsystems": "block:scsi:usb:pci"
+  },
+  {
+   "name": "sdi",
+   "path": "/dev/sdi",
+   "type": "disk",
+   "tran": "usb",
+   "rm": true,
+   "rota": false,
+   "size": 17179869184,
+   "model": "Flash Disk",
+   "serial": "FDROOT",
+   "vendor": "Generic",
+   "wwn": null,
+   "log-sec": 512,
+   "pttype": null,
+   "ptuuid": null,
+   "mountpoints": [
+    null
+   ],
+   "children": [
+    {
+     "name": "sdi1",
+     "path": "/dev/sdi1",
+     "type": "part",
+     "fstype": "ext4",
+     "mountpoints": [
+      "/"
+     ]
+    }
+   ],
+   "subsystems": "block:scsi:usb:pci"
+  },
+  {
+   "name": "sdj",
+   "path": "/dev/sdj",
+   "type": "disk",
+   "tran": "usb",
+   "rm": true,
+   "rota": null,
+   "size": 8589934592,
+   "model": "Ultra",
+   "serial": "",
+   "vendor": "SanDisk",
+   "wwn": null,
+   "log-sec": 512,
+   "pttype": null,
+   "ptuuid": null,
+   "mountpoints": [
+    null
+   ],
+   "children": [],
+   "subsystems": "block:scsi:usb:pci"
+  },
+  {
+   "name": "loop0",
+   "path": "/dev/loop0",
+   "type": "loop",
+   "tran": null,
+   "rm": false,
+   "rota": false,
+   "size": 31457280,
+   "model": null,
+   "serial": null,
+   "vendor": "",
+   "wwn": null,
+   "log-sec": 512,
+   "pttype": null,
+   "ptuuid": null,
+   "mountpoints": [
+    null
+   ],
+   "children": [],
+   "subsystems": "block:nvme:pci"
+  },
+  {
+   "name": "sr0",
+   "path": "/dev/sr0",
+   "type": "rom",
+   "tran": "sata",
+   "rm": true,
+   "rota": false,
+   "size": 1073741824,
+   "model": "DVD",
+   "serial": "X",
+   "vendor": "",
+   "wwn": null,
+   "log-sec": 512,
+   "pttype": null,
+   "ptuuid": null,
+   "mountpoints": [
+    null
+   ],
+   "children": [],
+   "subsystems": "block:nvme:pci"
+  }
+ ]
+}

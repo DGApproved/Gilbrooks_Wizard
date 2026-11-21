@@ -1,0 +1,1 @@
+{"component": "BIOS", "artifact": "hello_bios.bin", "artifact_sha256": "ec22bdcd431b26656f80f1b0d0ebd9cf720a703336054dec556616c3034b0f88", "sources": ["hello.asm", "build.sh"], "source_sha256": "a6c1d1eb9222a64ea0b87d17183cbd7aea8eaee9765546fe6eb2e00d314e8f90", "tool": "NASM version 2.16.01"}

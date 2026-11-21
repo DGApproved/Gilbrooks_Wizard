@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "usbprep"
+version = "1.0.0"
+description = "USB preparation and mounting tool (Linux tested)"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+
+[project.scripts]
+usbprep = "usbprep.cli:main"
+
+[tool.setuptools]
+packages = ["usbprep"]

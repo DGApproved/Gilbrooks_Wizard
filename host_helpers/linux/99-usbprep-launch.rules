@@ -1,0 +1,5 @@
+# OPT-IN TEMPLATE - installed only by `setup/linux_setup.sh autorun` after typed consent.
+# Starts the usbprep GUI (in YOUR user session) when a USB partition that looks like a prepared
+# EFI partition (GPT ESP type + FAT label EFI) appears. It does NOT mount or format anything;
+# mounting still requires you to click "Mount" and approve the pkexec/sudo prompt.
+ACTION=="add", SUBSYSTEM=="block", ENV{DEVTYPE}=="partition", ENV{ID_BUS}=="usb", ENV{ID_FS_TYPE}=="vfat", ENV{ID_FS_LABEL}=="EFI", ENV{ID_PART_ENTRY_TYPE}=="c12a7328-f81f-11d2-ba4b-00a0c93ec93b", TAG+="systemd", ENV{SYSTEMD_USER_WANTS}+="usbprep-launch.service"

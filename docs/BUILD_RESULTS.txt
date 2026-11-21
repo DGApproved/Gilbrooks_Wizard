@@ -1,0 +1,28 @@
+== python3 -m build ==
+!!
+Successfully built usbprep-1.0.0.tar.gz and usbprep-1.0.0-py3-none-any.whl
+rc=0
+== zipapp ==
+zipapp rc=0
+== run pyz ==
+| Capability | Linux | Windows | macOS |
+|---|---|---|---|
+| detect USB flash drives | WORKING+TESTED | IMPLEMENTED-UNTESTED | IMPLEMENTED-UNTESTED |
+== jar ==
+src/usbprep/gui/UsbPrepGui.java:391: warning: [unchecked] unchecked cast
+        Map<String, Object> st = (Map<String, Object>) Json.parse(out.toString());
+                                                                 ^
+  required: Map<String,Object>
+  found:    Object
+1 warning
+built dist/usbprep-gui.jar (--release 8)
+Picked up JAVA_TOOL_OPTIONS: -XX:+ExitOnOutOfMemoryError -XX:GCTimeLimit=75 -XX:MinHeapFreeRatio=5 -XX:MaxRAMPercentage=25.0
+  major version: 52
+== GUI self-test (JDK 17, Temurin 8) ==
+2 passed in 0.63s
+== boot artifacts ==
+ec22bdcd431b26656f80f1b0d0ebd9cf720a703336054dec556616c3034b0f88  boot_stock/scr/BIOS/hello_bios.bin
+ea3ed89009f43f759429904b6e54f4d09e0b99ef4b9249a7a8b1cd0b35cf0387  boot_stock/src/EFI/BOOTX64.EFI
+total 168
+-rw-r--r-- 1 ubuntu ubuntu 77626 Nov 21 08:03 usbprep-1.0.0-py3-none-any.whl
+-rw-r--r-- 1 ubuntu ubuntu 93280 Nov 21 08:03 usbprep-1.0.0.tar.gz

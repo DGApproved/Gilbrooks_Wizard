@@ -1,0 +1,11 @@
+# OPT-IN TEMPLATE - installed to ~/.config/systemd/user/ by `setup/linux_setup.sh autorun`.
+# Requires the desktop session to export DISPLAY/WAYLAND_DISPLAY to the systemd user manager
+# (GNOME/KDE do; otherwise run: systemctl --user import-environment DISPLAY WAYLAND_DISPLAY).
+[Unit]
+Description=Project 1 USB prep - open GUI when a prepared USB drive is inserted (opt-in)
+
+[Service]
+Type=simple
+WorkingDirectory=@APPDIR@
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/usr/bin/env python3 -m usbprep gui

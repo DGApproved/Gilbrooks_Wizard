@@ -1,0 +1,17 @@
+# Feasibility
+- **Linux:** kernel ext4 and vfat RW are native. Mounting needs root or udisks2/polkit; literal `/USB` needs root. Fully implemented; tested on images and mocks only.
+- **Windows:**
+  - No literal `/USB`. FAT32 RW at a drive letter is native.
+  - No redistributable native ext4 RW driver (Ext2Fsd/Paragon are unsuitable).
+  - ALTERNATIVE-PROPOSED: WSL2 `wsl --mount` (admin, recent Win10/11, mounts under /mnt/wsl).
+- **macOS:**
+  - `/` is read-only (SIP/SSV) and synthetic.conf is a privileged host change, so `/Volumes/USB` is proposed instead.
+  - No ext4 RW. macFUSE is closed source and not redistributable.
+- **Autorun:** no OS allows zero-install autorun. Opt-in host helper templates only.
+- **GUI:** Java 8 Swing (class major 52), per the request, instead of tkinter. Java is detected, never bundled.
+- **VirtualBox:**
+  - The VirtualBox manual says raw-disk VMDK is "expert users only" with a "risk of total data loss".
+  - The descriptor does not unmount the host or switch ownership; the app's handoff/return does that explicitly.
+- **Hello World boot:** implemented (stock NASM MBR code + x86-64 UEFI app) and booted in QEMU from an image only. The BIOS install patches only MBR bytes 0-439 of the selected USB. Hybrid MBR is NOT implemented. Physical hardware untested; the EFI binary is unsigned (no Secure Boot).
+- **Clone (ext4):** file-level rsync between private mounts (source read-only); Linux only.
+- **Full format:** partition-only zero-fill then filesystem creation; not a secure erase on flash (wear levelling keeps remapped blocks).

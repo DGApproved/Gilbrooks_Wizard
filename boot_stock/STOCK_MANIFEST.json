@@ -1,0 +1,13 @@
+{
+ "files": {
+  "scr/BIOS/BUILD_INFO.json": "4546e72dea7f9c6c4c4c2521e8dff51ff190daab6fdf86a332fd72bb118c55d3",
+  "scr/BIOS/build.sh": "3d512f665d8b1f7a1a539d50864dac3ea89aebf8de8e7277c4691b1b9aaf7b10",
+  "scr/BIOS/hello.asm": "8f180e486e5bb8a66c78ab852587009a7cef28d8edd2a4a081a5c4cbf42579d2",
+  "scr/BIOS/hello_bios.bin": "ec22bdcd431b26656f80f1b0d0ebd9cf720a703336054dec556616c3034b0f88",
+  "src/EFI/BOOTX64.EFI": "ea3ed89009f43f759429904b6e54f4d09e0b99ef4b9249a7a8b1cd0b35cf0387",
+  "src/EFI/BUILD_INFO.json": "5542d581f4c7fc16338d149adae3e27f38863cb34a933541980f3ae4213dff2e",
+  "src/EFI/build.sh": "26cf13f3c6a69a000db87a252c7750178b6989168eb96a63ecb6ecd61c6c961a",
+  "src/EFI/hello.c": "f54056cae7664d08ad7a496b51fc34b727975ade65c404271bf58a08629c0faa"
+ },
+ "name": "usbprep stock Hello World boot example"
+}
