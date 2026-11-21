@@ -130,8 +130,33 @@ def status(out_dir: str, dev: Device, fingerprint: dict) -> str:
     return "current" if rec.get("device") == dev.identity() and rec.get("layout") == json.loads(json.dumps(fingerprint)) else "stale"
 
 
+_VERSION_LINE = re.compile(r"^\s*(\d+)\.(\d+)[.\w]*\s*$", re.M)
+
+
+def parse_vbox_version(output: str):
+    """Return (version_string, warnings) from `VBoxManage --version` output.
+
+    On Linux VBoxManage may print a multi-line warning (e.g. "WARNING: The vboxdrv kernel module is not
+    loaded...") BEFORE the version, so the version is not necessarily the first line. Raises VmdkError if no
+    version line is found at all."""
+    output = output or ""
+    m = None
+    for m in _VERSION_LINE.finditer(output):
+        pass                                   # keep the LAST matching line: the version comes after warnings
+    if not m:
+        shown = output.strip() or "(no output)"
+        raise VmdkError("could not read the VirtualBox version from `VBoxManage --version`; it printed:\n"
+                        f"{shown}\nCheck that VirtualBox is installed correctly (on Linux: `sudo /sbin/vboxconfig`).")
+    version = m.group(0).strip()
+    warnings = (output[:m.start()] + output[m.end():]).strip()
+    return version, warnings
+
+
 def vbox_command(vbox: str, version: str, out: str, dev_path: str) -> List[str]:
-    major = int(re.match(r"(\d+)", version or "0").group(1))
+    m = re.match(r"\s*(\d+)", version or "")
+    if not m:
+        raise VmdkError(f"unrecognised VirtualBox version {version!r}")
+    major = int(m.group(1))
     if major >= 7:
         return [vbox, "createmedium", "disk", "--filename", out, "--format", "VMDK", "--variant", "RawDisk",
                 "--property", f"RawDrive={dev_path}"]
@@ -169,7 +194,14 @@ def prepare_vmdk(dev: Device, out_dir: Optional[str], execute=False, confirmed=F
         raise VmdkError(f"VirtualBox (VBoxManage) is not installed. Install it from {VBOX_DOWNLOAD} or your "
                         "distribution's packages (base package GPLv3; the Extension Pack has a separate PUEL "
                         "license and is not needed for this), then retry. Nothing is downloaded automatically.")
-    version = runner.run([vbox, "--version"]).stdout.strip()
+    res = runner.run([vbox, "--version"], check=False)
+    version, vbox_warn = parse_vbox_version((res.stdout or "") + "\n" + (res.stderr or ""))
+    if vbox_warn:
+        log.append("VirtualBox reported: " + vbox_warn)
+        if "vboxdrv" in vbox_warn:
+            log.append("NOTE: the descriptor can still be created, but VMs will not START until the vboxdrv kernel "
+                       "module loads (Linux: run `sudo /sbin/vboxconfig`; with Secure Boot on, the module must be "
+                       "signed/enrolled or Secure Boot disabled)")
     cmd = vbox_command(vbox, version, out, dev.path)
     log.append("command: " + " ".join(cmd))
     if not access(dev.path, os.R_OK | os.W_OK):
